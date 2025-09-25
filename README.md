@@ -1,6 +1,6 @@
 # tree-pro
 
-`tree-pro` prints a concise directory tree, folding identical subdirectories and limiting the number of files shown per level.
+`tree-pro` is a lightweight alternative to `tree`, providing clean directory trees with folded duplicates and file limits.
 
 ## Install
 
@@ -41,31 +41,13 @@ tree-pro [path] [flags]
 
 Example:
 ```bash
-tree-pro -f 2 -d 1 ~/datasets/train
+tree-pro -f 2 -d 1 /path/to/your/project
 ```
 
-## Sample
+## Sample 
 
-Command:
+<img width="458" height="213" alt="image" src="https://github.com/user-attachments/assets/90c63fd4-a86e-4c36-a4ec-f2ec4beecf27" />
 
-```bash
-tree-pro -f 2 examples/sample
-```
+## Author
 
-Output (colors stripped for README):
-
-```
-examples/sample/
-├── pkg/
-│   ├── serviceA/
-│   │   ├── cmd/
-│   │   │   └── main.go
-│   │   ├── ... (1 identical dirs)
-│   │   └── config.yaml
-│   └── ... (2 identical dirs)
-└── scripts/
-    ├── build.sh
-    ├── deploy.sh
-    └── ... [0 directories, 3 files, showing first 2]
-[12 directories, 12 files]
-```
+[@Djanghao](https://github.com/Djanghao)
