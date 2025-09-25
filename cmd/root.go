@@ -12,10 +12,9 @@ import (
 )
 
 var (
-	maxFiles int
-	maxDirs  int
-	maxLevel int
-	noColor  bool
+    maxFiles int
+    maxDirs  int
+    maxLevel int
 )
 
 var rootCmd = &cobra.Command{
@@ -50,13 +49,13 @@ var rootCmd = &cobra.Command{
 		}
 
 		label := formatRootLabel(target)
-		printerOpts := internal.PrinterOptions{
-			Writer:   cmd.OutOrStdout(),
-			MaxDirs:  maxDirs,
-			UseColor: !noColor,
-		}
-		return internal.PrintTree(label, dir, printerOpts)
-	},
+        printerOpts := internal.PrinterOptions{
+            Writer:   cmd.OutOrStdout(),
+            MaxDirs:  maxDirs,
+            UseColor: true,
+        }
+        return internal.PrintTree(label, dir, printerOpts)
+    },
 }
 
 // Execute runs the CLI.
@@ -68,10 +67,9 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().IntVarP(&maxFiles, "files", "f", 5, "maximum files to display per directory (0 for unlimited)")
-	rootCmd.Flags().IntVarP(&maxDirs, "dirs", "d", 1, "maximum identical directories to expand per group (0 for unlimited)")
-	rootCmd.Flags().IntVarP(&maxLevel, "level", "L", 0, "maximum recursion depth (0 for unlimited)")
-	rootCmd.Flags().BoolVar(&noColor, "no-color", false, "disable color output")
+    rootCmd.Flags().IntVarP(&maxFiles, "files", "f", 5, "maximum files to display per directory (0 for unlimited)")
+    rootCmd.Flags().IntVarP(&maxDirs, "dirs", "d", 1, "maximum identical directories to expand per group (0 for unlimited)")
+    rootCmd.Flags().IntVarP(&maxLevel, "level", "L", 0, "maximum recursion depth (0 for unlimited)")
 }
 
 func formatRootLabel(input string) string {

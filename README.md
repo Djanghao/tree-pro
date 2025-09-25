@@ -7,6 +7,8 @@
 Option A — via `go install` (recommended):
 
 ```bash
+go install github.com/Djanghao/tree-pro@v0.2.0
+# or use the latest tag
 go install github.com/Djanghao/tree-pro@latest
 ```
 
@@ -36,13 +38,34 @@ tree-pro [path] [flags]
 - `-f, --files` limit files per directory (default 5)
 - `-d, --dirs` expand identical directories (default 1)
 - `-L, --level` max depth (0 = unlimited)
-- `--no-color` disable ANSI colors
 
 Example:
 ```bash
 tree-pro -f 2 -d 1 ~/datasets/train
 ```
 
-## Packaging
+## Sample
 
-Use `goreleaser release` to produce `.deb` packages for your APT repository.
+Command:
+
+```bash
+tree-pro -f 2 examples/sample
+```
+
+Output (colors stripped for README):
+
+```
+examples/sample/
+├── pkg/
+│   ├── serviceA/
+│   │   ├── cmd/
+│   │   │   └── main.go
+│   │   ├── ... (1 identical dirs)
+│   │   └── config.yaml
+│   └── ... (2 identical dirs)
+└── scripts/
+    ├── build.sh
+    ├── deploy.sh
+    └── ... [0 directories, 3 files, showing first 2]
+[12 directories, 12 files]
+```
