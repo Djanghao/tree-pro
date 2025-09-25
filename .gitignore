@@ -1,0 +1,13 @@
+tree-pro
+dist/
+bin/
+build/
+
+coverage.*
+*.out
+
+*.log
+
+.DS_Store
+.idea/
+.vscode/

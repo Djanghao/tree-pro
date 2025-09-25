@@ -1,0 +1,30 @@
+project_name: tree-pro
+
+builds:
+  - id: tree-pro
+    main: ./main.go
+    binary: tree-pro
+    goos: [linux]
+    goarch: [amd64, arm64]
+    env:
+      - CGO_ENABLED=0
+
+nfpms:
+  - id: deb
+    package_name: tree-pro
+    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Arch }}"
+    homepage: "https://github.com/Djanghao/tree-pro"
+    maintainer: "Houston Zhang <hstnzhang@gmail.com>"
+    description: "Compact tree view with identical-directory folding."
+    formats: [deb]
+    bindir: /usr/local/bin
+    section: utils
+    priority: optional
+    license: MIT
+    replaces: [tree-pro]
+    conflicts: [tree-pro]
+    contents:
+      - src: README.md
+        dst: /usr/share/doc/tree-pro/README.md
+changelog:
+  use: git
